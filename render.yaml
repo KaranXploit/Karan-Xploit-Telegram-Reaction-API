@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: karan-xploit-telegram-reaction-api
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: API_SECRET
+        generateValue: true
+      - key: BOT_TOKENS
+        sync: false
+      - key: ALLOWED_ORIGIN
+        value: "*"
